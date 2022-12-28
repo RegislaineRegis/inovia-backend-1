@@ -34,17 +34,17 @@ erDiagram
   Product }o--o| SaleProduct: "refered"
   User {
     bigint       id PK     "auto generated"
-    datetime[3]  timestamp "on create/update"
-    datetime[3]  created   "on create"
-    datetime[3]  deleted   "only on delete (virtual delete)"
+    timestamp    timestamp "on create/update"
+    timestamp    created   "on create"
+    timestamp    deleted   "only on delete (virtual delete)"
     varchar[100] email     "unique"
     text         password  "sha256 encrypted"
   }
   Customer {
     bigint       id        PK "auto generated"
-    datetime[3]  timestamp    "on create/update"
-    datetime[3]  created      "on create"
-    datetime[3]  deleted      "only on delete (virtual delete)"
+    timestamp    timestamp    "on create/update"
+    timestamp    created      "on create"
+    timestamp    deleted      "only on delete (virtual delete)"
     bigint       user_id   FK "refers to user.id"
     varchar[100] name
     varchar[200] address      "optional"
@@ -55,9 +55,9 @@ erDiagram
   }
   Product {
     varchar       id            PK
-    datetime[3]   timestamp        "on create/update"
-    datetime[3]   created          "on create"
-    datetime[3]   deleted          "on delete (virtual delete)"
+    timestamp     timestamp        "on create/update"
+    timestamp     created          "on create"
+    timestamp     deleted          "on delete (virtual delete)"
     varchar[100]  name
     decimal[10-2] price
     varchar[20]   label
@@ -67,9 +67,9 @@ erDiagram
   }
   Sale {
     bigint      id          PK
-    datetime[3] timestamp      "on create/update"
-    datetime[3] created        "on create"
-    datetime[3] deleted        "on delete (virtual delete)"
+    timestamp   timestamp      "on create/update"
+    timestamp   created        "on create"
+    timestamp   deleted        "on delete (virtual delete)"
     bigint      customer_id FK "refers to customer.id"
     varchar[10] status         "one of [opened/closed/canceled]"
   }
