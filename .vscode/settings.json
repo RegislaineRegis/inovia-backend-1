@@ -20,6 +20,9 @@
   "files.encoding": "utf8",
   "files.eol": "\n",
   "files.insertFinalNewline": false,
+  "files.associations": {
+    "*.mdx": "markdown"
+  },
   // barrelr
   "barrelr.lineEnding": "LF",
   "barrelr.useDoubleQuotes": false,
