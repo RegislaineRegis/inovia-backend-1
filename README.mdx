@@ -6,16 +6,19 @@
   - login
   - refresh
 - customer
+  - getFullCustomer
   - addCustomer
   - editCustomer
   - removeCustomer
   - searchCustomer
 - products
+  - getFullProduct
   - addProduct
   - editProduct
   - removeProduct
   - searchProduct
 - sales
+  - getFullSale
   - addSale
   - editSale
   - removeSale
@@ -51,7 +54,7 @@ erDiagram
     text         photoURL     "optional"
   }
   Product {
-    bigint        id            PK
+    varchar       id            PK
     datetime[3]   timestamp        "on create/update"
     datetime[3]   created          "on create"
     datetime[3]   deleted          "on delete (virtual delete)"
@@ -60,7 +63,7 @@ erDiagram
     varchar[20]   label
     decimal[10-2] tax
     text          photoURL         "optional"
-    json          miscellaneous    "Array<{key: string, value: string }>"
+    json          miscellaneous    "Array<{key: string, name: string, value: string }>"
   }
   Sale {
     bigint      id          PK
@@ -68,11 +71,12 @@ erDiagram
     datetime[3] created        "on create"
     datetime[3] deleted        "on delete (virtual delete)"
     bigint      customer_id FK "refers to customer.id"
-    varchar[10] status         "one of [open/closed]"
+    varchar[10] status         "one of [opened/closed/canceled]"
   }
   SaleProduct {
-    bigint        id      PK
-    bigint        sale_id FK "refers to sale.id"
+    bigint        id         PK
+    bigint        sale_id    FK "refers to sale.id"
+    varchar       product_id    "abstract reference to product.id"
     varchar[100]  name
     decimal[10-2] price
     decimal[10-2] quantity
