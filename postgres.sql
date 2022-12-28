@@ -40,3 +40,10 @@ CREATE TABLE "sale_product" (
   "brand" VARCHAR(20) NOT NULL,
   "tax" DECIMAL(10,2) NOT NULL
 );
+
+INSERT INTO "user" ("timestamp", "created", "email", "password") VALUES (
+  CURRENT_TIMESTAMP(3), 
+  CURRENT_TIMESTAMP(3), 
+  'superuser@inovia.com.br', 
+  '27e0ce247829cfc5b71914f9c59f592c922153e195b750983abd4ec1b04de69e251957ad6393d962' /* Test@123 */
+)
