@@ -1,0 +1,37 @@
+{
+  "name": "inovia-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Inovia FullStack Test",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky install",
+    "commit": "git-cz",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leandroluk/inovia-backend.git"
+  },
+  "keywords": [
+    "inovia",
+    "backend"
+  ],
+  "author": {
+    "name": "Leandro S. Gomes",
+    "email": "leandroluk@gmail.com",
+    "url": "https://www.linkedin.com/in/leandroluk"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leandroluk/inovia-backend/issues"
+  },
+  "homepage": "https://github.com/leandroluk/inovia-backend#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "commitizen": "^4.2.6",
+    "commitlint": "^17.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^8.0.2"
+  }
+}
