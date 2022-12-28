@@ -1,0 +1,82 @@
+# inovia-backend
+
+## Identified use-cases (CSU)
+
+- user
+  - login
+  - refresh
+- customer
+  - addCustomer
+  - editCustomer
+  - removeCustomer
+  - searchCustomer
+- products
+  - addProduct
+  - editProduct
+  - removeProduct
+  - searchProduct
+- sales
+  - addSale
+  - editSale
+  - removeSale
+  - searchSale
+
+## Data modeling (DER)
+
+```mermaid
+erDiagram
+  Customer |o--o| User: is
+  Sale }|--|| SaleProduct: has
+  Sale ||--o{ Customer: has
+  Product }o--o| SaleProduct: "refered"
+  User {
+    bigint       id PK     "auto generated"
+    datetime[3]  timestamp "on create/update"
+    datetime[3]  created   "on create"
+    datetime[3]  deleted   "only on delete (virtual delete)"
+    varchar[100] email     "unique"
+    text         password  "sha256 encrypted"
+  }
+  Customer {
+    bigint       id        PK "auto generated"
+    datetime[3]  timestamp    "on create/update"
+    datetime[3]  created      "on create"
+    datetime[3]  deleted      "only on delete (virtual delete)"
+    bigint       user_id   FK "refers to user.id"
+    varchar[100] name
+    varchar[200] address      "optional"
+    varchar[20]  phone        "optional"
+    varchar[100] email        "optional"
+    date         birthDate    "optional"
+    text         photoURL     "optional"
+  }
+  Product {
+    bigint        id            PK
+    datetime[3]   timestamp        "on create/update"
+    datetime[3]   created          "on create"
+    datetime[3]   deleted          "on delete (virtual delete)"
+    varchar[100]  name
+    decimal[10-2] price
+    varchar[20]   label
+    decimal[10-2] tax
+    text          photoURL         "optional"
+    json          miscellaneous    "Array<{key: string, value: string }>"
+  }
+  Sale {
+    bigint      id          PK
+    datetime[3] timestamp      "on create/update"
+    datetime[3] created        "on create"
+    datetime[3] deleted        "on delete (virtual delete)"
+    bigint      customer_id FK "refers to customer.id"
+    varchar[10] status         "one of [open/closed]"
+  }
+  SaleProduct {
+    bigint        id      PK
+    bigint        sale_id FK "refers to sale.id"
+    varchar[100]  name
+    decimal[10-2] price
+    decimal[10-2] quantity
+    varchar[20]   label
+    decimal[10-2] tax
+  }
+```
