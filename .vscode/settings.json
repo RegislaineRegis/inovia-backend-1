@@ -1,0 +1,48 @@
+{
+  // editor
+  "editor.formatOnPaste": true,
+  "editor.formatOnSaveMode": "file",
+  "editor.formatOnType": true,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
+  },
+  "editor.rulers": [
+    80,
+    100,
+    120
+  ],
+  // files
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.insertFinalNewline": false,
+  // barrelr
+  "barrelr.lineEnding": "LF",
+  "barrelr.useDoubleQuotes": false,
+  "barrelr.useSemiColons": true,
+  // docker
+  "[dockercompose]": {
+    "editor.formatOnSave": false,
+  },
+  // git
+  "git.inputValidation": "off",
+  // typescript
+  "typescript.format.semicolons": "insert",
+  "typescript.preferences.quoteStyle": "single",
+  // thunder-client
+  "thunder-client.saveToWorkspace": true,
+  // jestrunner
+  "jestrunner.runOptions": [
+    "--testTimeout=999999"
+  ],
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json": [
+      "file:///Users/leandro.gomes/dev/leandroluk/caas/api/docker/api.compose.yml",
+      "file:///Users/leandro.gomes/dev/leandroluk/caas/api/docker/etl.compose.yml"
+    ]
+  }
+}
